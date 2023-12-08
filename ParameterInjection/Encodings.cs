@@ -1,5 +1,16 @@
 ﻿namespace ParameterInjection;
 
+public static class Encodings
+{
+    public static IEncoder None { get; } = new None();
+    public static IEncoder UpperCase { get; } = new UpperCase();
+    public static IEncoder LowerCase { get; } = new LowerCase();
+    public static IEncoder HomogeniseNewLines { get; } = new HomogeniseNewLines();
+    public static IEncoder Flatten { get; } = new Flatten();
+    public static IEncoder Trim { get; } = new Trim();
+    public static IEncoder Separate { get; } = new Separate();
+}
+
 public sealed class None : IEncoder
 {
     public String Encode(String text) => TypeInjection.None.Encode(text);
