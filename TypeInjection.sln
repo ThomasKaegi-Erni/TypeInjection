@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParameterInjection", "ParameterInjection\ParameterInjection.csproj", "{A1E7A2FD-083C-422F-8B47-25751AD9815A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeInjection.Benchmark", "TypeInjection.Benchmark\TypeInjection.Benchmark.csproj", "{4FB37674-97CC-4797-A76E-899C03B410EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{A1E7A2FD-083C-422F-8B47-25751AD9815A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1E7A2FD-083C-422F-8B47-25751AD9815A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1E7A2FD-083C-422F-8B47-25751AD9815A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB37674-97CC-4797-A76E-899C03B410EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB37674-97CC-4797-A76E-899C03B410EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB37674-97CC-4797-A76E-899C03B410EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB37674-97CC-4797-A76E-899C03B410EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
