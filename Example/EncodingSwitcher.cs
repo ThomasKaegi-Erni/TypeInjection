@@ -6,7 +6,7 @@ namespace Example;
 public sealed class EncodingSwitcher : ISwitcher
 {
     private const String bail = "n";
-    private static readonly Dictionary<String, Func<IBuilder, IBuilder>> encodings = new()
+    private static readonly Dictionary<String, Func<ITypeBuilder, ITypeBuilder>> encodings = new()
     {
         ["u"] = b => b.Inject<UpperCase>(),
         ["l"] = b => b.Inject<LowerCase>(),
@@ -15,7 +15,7 @@ public sealed class EncodingSwitcher : ISwitcher
         ["f"] = b => b.Inject<Flatten>(),
         ["t"] = b => b.Inject<Trim>(),
     };
-    private IBuilder builder = Builder.With<None>();
+    private ITypeBuilder builder = Builder.With<None>();
     public ISwitcher Current { get; private set; }
     public EncodingSwitcher()
     {

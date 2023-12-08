@@ -52,7 +52,7 @@ public sealed class Separate : IEncoding
     }
 }
 
-public sealed class Combo<TLeft, TRight> : IEncoding
+internal sealed class Combo<TLeft, TRight> : IEncoding
     where TLeft : IEncoding
     where TRight : IEncoding
 {
