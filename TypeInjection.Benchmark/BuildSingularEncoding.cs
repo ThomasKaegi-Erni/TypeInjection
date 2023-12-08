@@ -10,14 +10,14 @@ namespace TypeInjection.Benchmark;
 [MemoryDiagnoser]
 public class BuildSingularEncoding
 {
-  private readonly ITypeBuilder tBuilder = T.Builder.Builder.With<T.None>();
-  private readonly IParameterizedBuilder pBuilder = P.Builder.Builder.With(new P.None());
+    private readonly ITypeBuilder tBuilder = T.Builder.Builder.With<T.None>();
+    private readonly IParameterizedBuilder pBuilder = P.Builder.Builder.With(new P.None());
 
-  [Benchmark(Baseline = true)]
-  public ITextProcessor Parameterised() => this.pBuilder.Add(new P.Flatten()).Build();
+    [Benchmark(Baseline = true)]
+    public ITextProcessor Parameterised() => this.pBuilder.Add(new P.Flatten()).Build();
 
-  [Benchmark]
-  public ITextProcessor TypeInjection() => this.tBuilder.Inject<T.Flatten>().Build();
+    [Benchmark]
+    public ITextProcessor TypeInjection() => this.tBuilder.Inject<T.Flatten>().Build();
 }
 
 /*

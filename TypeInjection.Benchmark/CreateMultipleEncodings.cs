@@ -8,7 +8,6 @@ namespace TypeInjection.Benchmark;
 [MemoryDiagnoser]
 public class CreateMultipleEncodings
 {
-
     [Benchmark(Baseline = true)]
     public ITextProcessor Parameterised()
     {
