@@ -1,23 +1,35 @@
-﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Attributes;
 using ParameterInjection.Builder;
 using TypeInjection.Builder;
 
 using T = TypeInjection;
 using P = ParameterInjection;
+using TypeInjection.Sharing;
 
 namespace TypeInjection.Benchmark;
 
 [MemoryDiagnoser]
-public class BuildSingularEncoding
+public class SharingBenchmark
 {
-  private readonly ITypeBuilder tBuilder = T.Builder.Builder.With<T.None>();
-  private readonly IParameterizedBuilder pBuilder = P.Builder.Builder.With(new P.None());
+    private readonly Serializer tSerializer = Serializer.With<T.HomogeniseNewLines>();
+    private readonly AllocFreeSerializer tFreeSerializer = AllocFreeSerializer.With<T.Flatten>();
+    /*
+    [Benchmark(Baseline = true)]
+    public ITextProcessor Parameterised() => this.pBuilder.Add(new P.Flatten()).Build();
+    */
 
-  [Benchmark(Baseline = true)]
-  public ITextProcessor Parameterised() => this.pBuilder.Add(new P.Flatten()).Build();
+    [Benchmark]
+    public ITextProcessor TypeInjectionProperty() => this.tSerializer.Injector.Inject(TextProcessingCreator.Item);
 
-  [Benchmark]
-  public ITextProcessor TypeInjection() => this.tBuilder.Inject<T.Flatten>().Build();
+    [Benchmark]
+    public ITextProcessor TypeInjectionInstance() => this.tFreeSerializer.Inject(TextProcessingCreator.Item);
+
+    [Benchmark]
+    public ITextProcessor TypeInjectionCombo()
+    {
+        var rightInjector = this.tFreeSerializer.Inject(ComboProcessingCreator.Item);
+        return this.tSerializer.Injector.Inject(rightInjector);
+    }
 }
 
 /*
