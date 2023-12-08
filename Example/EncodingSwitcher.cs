@@ -10,6 +10,7 @@ public sealed class EncodingSwitcher : ISwitcher
     {
         ["u"] = b => b.Inject<UpperCase>(),
         ["l"] = b => b.Inject<LowerCase>(),
+        ["s"] = b => b.Inject<Separate>(),
         ["h"] = b => b.Inject<HomogeniseNewLines>(),
         ["f"] = b => b.Inject<Flatten>(),
         ["t"] = b => b.Inject<Trim>(),

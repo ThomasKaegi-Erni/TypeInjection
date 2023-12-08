@@ -13,13 +13,14 @@ while (switcher.MoveNext())
 {
     switcher = switcher.Current;
 }
-
 textProcessor = switcher.Build();
-var compactedText = textProcessor.Process(text);
+
+var processedText = textProcessor.Process(text);
+
 Console.WriteLine();
 Console.WriteLine(" --- original vs. processed text ---");
 Console.ForegroundColor = ConsoleColor.Red;
 Console.WriteLine(unprocessedText);
 Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine(compactedText);
+Console.WriteLine(processedText);
 Console.ResetColor();
