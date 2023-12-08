@@ -27,12 +27,12 @@ public sealed class Flatten : IEncoding
 
 public sealed class Trim : IEncoding
 {
-    public static String Encode(String text) => text.Trim();
+    public static String Encode(String text) => String.Join(" ", text.Split(" ").Where(s => s.Length > 0));
 }
 
 public sealed class Combo<TLeft, TRight> : IEncoding
     where TLeft : IEncoding
     where TRight : IEncoding
 {
-    public static String Encode(String text) => TLeft.Encode(TRight.Encode(text));
+    public static String Encode(String text) => TRight.Encode(TLeft.Encode(text));
 }

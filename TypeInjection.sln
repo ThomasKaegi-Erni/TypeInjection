@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeInjection", "TypeInject
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeInjection.Test", "TypeInjection.Test\TypeInjection.Test.csproj", "{4AEB3567-1D06-46A9-9B9F-829AA8D4D353}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{3B392F2E-8B37-4462-918A-1D0AC7CB68F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{17700E25-FD96-4049-B151-D032BB57EF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17700E25-FD96-4049-B151-D032BB57EF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17700E25-FD96-4049-B151-D032BB57EF77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B392F2E-8B37-4462-918A-1D0AC7CB68F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B392F2E-8B37-4462-918A-1D0AC7CB68F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B392F2E-8B37-4462-918A-1D0AC7CB68F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B392F2E-8B37-4462-918A-1D0AC7CB68F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
