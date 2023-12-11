@@ -1,5 +1,5 @@
 
-namespace TypeInjection.Sharing;
+namespace TypeInjection;
 
 public interface IInject
 {
