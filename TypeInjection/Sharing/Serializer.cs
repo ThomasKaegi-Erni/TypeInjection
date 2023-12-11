@@ -1,7 +1,3 @@
-
-
-using TypeInjection.Builder;
-
 namespace TypeInjection.Sharing;
 
 // Sealed, but not allocation free!

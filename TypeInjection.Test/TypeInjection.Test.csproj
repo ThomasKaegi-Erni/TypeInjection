@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TypeInjection\TypeInjection.csproj" />
+    <ProjectReference Include="..\ParameterInjection\ParameterInjection.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,3 @@
-using TypeInjection.Builder;
-
 namespace TypeInjection.Sharing;
 
 internal sealed class Inject<TEncoding> : IInject
