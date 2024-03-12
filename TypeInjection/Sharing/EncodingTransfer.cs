@@ -10,7 +10,7 @@ public sealed class TextProcessingCreator : IEncodingInjector<ITextProcessor>
 }
 
 
-// thi is also allocation free :-)
+// this is also allocation free :-)
 public sealed class ComboProcessingCreator : IEncodingInjector<IEncodingInjector<ITextProcessor>> // ugly nested interface...
 {
     public static ComboProcessingCreator Item { get; } = new ComboProcessingCreator();
