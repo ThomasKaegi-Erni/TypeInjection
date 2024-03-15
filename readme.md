@@ -69,7 +69,7 @@ Serializer serializer = new Serializer(encoding); // not the impl. from above...
 Stream fileStream = new FileStream("/some/path.log", serializer.Encoding); // not the impl. from above...
 ```
 
-Option A) translates fairly easily to our implementations from above (it's not type injection yet):
+Option A) translates fairly easily to our implementations from above (it's not type injection yet, though):
 
 ```csharp
 // A) Analogue using a shared type parameter
@@ -81,11 +81,11 @@ public (ISerializer, Stream) Initialize<TEncoding>()
 }
 ```
 
-The issue with this is that the serializer and the file stream are co-located: i.e. they are instantiated at the same time. So what so we do when we cannot instantiate them at the same time?
+The issue with this is that the serializer and the file stream are co-located: i.e. they are instantiated at the same time. So what should we do when we cannot instantiate them at the same time?
 
 ### Type Injection Solution
 
-Scenario B) where the encoding used by the serializer can be passed to the stream is not trivial to achieve using static interface members. We need an intermediary process by which the type parameter of one type can be transparently be shared with some other entirely unrelated type.
+Scenario B) where the encoding used by the serializer can be passed to the stream is not trivial to achieve using static interface members. We need an intermediary process by which the type parameter of one type can be transparently shared with some other entirely unrelated type.
 
 Let's first introduce two new interfaces:
 
@@ -129,12 +129,10 @@ public sealed class FileStreamCreator : IEncodingInjector<Stream>
     {
         return new FileStream<TEncoding>(this.path);
     }
-
-    /* ISerialize members here */
 }
 ```
 
-Now we can share the type parameter that the serializer uses to create a (file) stream that uses the same encoding type whithout either the `Serializer` or the `FileStream` knowing about each other.
+Now we can share the type parameter that the serializer uses to create a (file) stream that uses the same encoding type without either the `Serializer` or the `FileStream` knowing about each other.
 
 ```csharp
 // B) or, by using a property on the serializer to instantiate the file stream
@@ -166,6 +164,6 @@ The downsides are numerous though:
 - Inability to fully abstract the injection interfaces
   - The injected base type (`IEncoding`) cannot be parameterized as of .Net 8
 
-So currently, be careful when employing this pattern.
+Hence, currently, be careful when employing this pattern.
 
 Note also that this is very similar to the visitor pattern using types instead of values.
