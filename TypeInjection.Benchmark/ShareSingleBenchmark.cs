@@ -6,7 +6,7 @@ using E = ParameterInjection.Encodings;
 
 namespace TypeInjection.Benchmark;
 
-[MemoryDiagnoser]
+[MemoryDiagnoser(displayGenColumns: false)]
 public class ShareSingleBenchmark
 {
     private readonly AllocFreeSerializer tSerializer = AllocFreeSerializer.With<Flatten>();

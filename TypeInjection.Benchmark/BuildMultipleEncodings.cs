@@ -7,7 +7,7 @@ using P = ParameterInjection;
 
 namespace TypeInjection.Benchmark;
 
-[MemoryDiagnoser]
+[MemoryDiagnoser(displayGenColumns: false)]
 public class BuildMultipleEncodings
 {
     private readonly ITypeBuilder tBuilder = T.Builder.Builder.With<T.None>();

@@ -7,7 +7,7 @@ using E = ParameterInjection.Encodings;
 
 namespace TypeInjection.Benchmark;
 
-[MemoryDiagnoser]
+[MemoryDiagnoser(displayGenColumns: false)]
 public class ShareMultipleBenchmark
 {
     private readonly Serializer tSerializer = Serializer.With<HomogeniseNewLines>();
