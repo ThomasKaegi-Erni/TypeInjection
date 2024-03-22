@@ -1,13 +1,13 @@
 using BenchmarkDotNet.Attributes;
-using TypeInjection;
 
 using T = TypeInjection;
 using P = ParameterInjection;
 
+namespace TypeInjection.Benchmark;
+
 [MemoryDiagnoser(displayGenColumns: false)]
 public class CreateSingularEncodings
 {
-
     [Benchmark(Baseline = true)]
     public ITextProcessor Parameterised() => new P.TextProcessor(new P.LowerCase());
 
